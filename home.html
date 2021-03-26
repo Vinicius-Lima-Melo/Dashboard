@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/chat.css">
+    <link rel="stylesheet" href="css/toDo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js" integrity="sha512-d9xgZrVZpmmQlfonhQUvTR7lMPtO7NkZMkA0ABN3PHCbKA5nqylQ/yWlFAyY6hYgdF1Qh6nYiuADWwKB4C2WSw==" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        
+        $(document).ready(function() {
+            window.history.pushState("", "", "http://localhost/projetos/dashboard/home.html");   
+        });
+
+        $(document).on('click', '.row', function(event) {
+            $('.row').removeClass('active'); 
+            $(this).addClass('active'); 
+            let url = $(this).attr('href');
+            url = url.substr(1)
+            $('.content').css('display', 'none');
+            $('#content-'+url).css('display', 'block');
+        });
+
+
+
+
+    </script>
+</head>
+<body>
+
+    <div id="menu-left">
+        <div class="menu-title">
+            <h2>Dashboard</h2>
+        </div>
+        <div class="col">
+            <a href="#home" class="row active">
+                <i class="fas fa-home"></i>
+                Home
+            </a>
+            <a href="#email" class="row">
+                <i class="fas fa-envelope"></i>
+                Email
+            </a>
+            <a href="#toDo" class="row">
+                <i class="fas fa-tasks"></i>
+                To-do
+            </a>
+            <a href="#ecommerce" class="row">
+                <i class="fas fa-shopping-cart"></i>
+                eCommerce
+            </a>
+            <a href="#chat" class="row">
+                <i class="fas fa-comment"></i>
+                Chat
+            </a>
+            <a href="#user" class="row">
+                <i class="fas fa-user"></i>
+                User
+            </a>
+            <a href="#settings" class="row">
+                <i class="fas fa-cog"></i>
+                Settings
+            </a>
+
+            <div class="row-bottom">
+                <i class="fas fa-door-open"></i>
+                Logout
+            </div>
+
+        </div>
+    </div>
+    
+    <div id="navbar-top">
+        <button class="btn-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <div class="user-information">
+            <div class="user-img"></div>
+            <div class="user-name">Vinicius lima</div>
+            <div class="user-dropdown"><i class="fas fa-angle-down"></i></div>
+
+        </div>
+    </div>
+
+    <div id="content-home" class="content">
+        <div class="container">
+            <div class="container-header">
+                <select class="dropdown-filter" name="" id="">
+                    <option value="">Classificado por Semana</option>
+                    <option value="">Classificado por Mês</option>
+                    <option value="">Classificado por Ano</option>
+                </select>
+                <!-- <h4>Sumarry of this Semana</h4> -->
+                <!-- <h4>Sumarry of this Month</h4> -->
+                <!-- <h4>Sumarry of this Ano</h4> -->
+            </div>
+            <div class="container-body">
+                <div class="card">
+                    <div class="card-top">
+                        <i class="fas fa-cloud-download-alt card-icon"></i>
+                        <div class="box-right">
+                            <div class="values">1.599</div>
+                            <div class="title">Downloads</div>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <p>Downloads do eBook de programação</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <i class="fas fa-shopping-cart card-icon"></i>
+                        <div class="box-right">
+                            <div class="values">$ 599</div>
+                            <div class="title">eCommerce</div>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <p>Total de vendas dos produtos</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <i class="fas fa-user-plus card-icon"></i>
+                        <div class="box-right">
+                            <div class="values">100</div>
+                            <div class="title">Clientes</div>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <p>Novos clientes</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-top">
+                        <i class="fas fa-comments card-icon"></i>
+                        <div class="box-right">
+                            <div class="values">999</div>
+                            <div class="title">Comentários</div>
+                        </div>
+                    </div>
+                    <div class="card-bottom">
+                        <p>Comentários nos posts</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="box">
+            <div class="box-collumn">
+                <canvas id="myChart" ></canvas>
+            </div>
+            <div class="box-collumn">
+               <table>
+                    <tr>
+                        <th>Ranking</th>
+                        <th>Compras</th>
+                        <th>Saldo</th>
+                    </tr>
+                    <tr>
+                        <td class="rank-user">
+                            <div class="rank-user-img"></div>
+                            Peter
+                        </td>
+                        <td>5</td>
+                        <td>$100</td>
+                    </tr>
+                    
+                </table>            
+            </div>
+        </div>
+    </div>
+
+    <div id="content-email" class="content" style="display: none;">content-email</div>
+    
+    <div id="content-toDo" class="content" style="display: none;">
+        <div class="box-toDo">
+            <div class="card-toDo">
+                <div class="card-toDo-title">
+                    <span>New Todo List</span>
+                </div>
+                <div class="new-toDo-row">
+                    <input type="text" class="new-Todo-input" placeholder="New todo item">
+                    <button class="btnAddNewTodo">
+                       <i class="fas fa-plus"></i> 
+                    </button>
+                </div>
+                <div class="toDo-row toDo-success">
+                    
+                </div>
+                <div class="toDo-row toDo-danger">
+                    
+                </div>
+                <div class="toDo-row toDo-success">
+                    
+                </div>
+                <div class="toDo-row toDo-danger">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content-ecommerce" class="content" style="display: none;">content-ecommerce</div>
+    <div id="content-chat" class="content" style="display: none;">
+        <div class="box-chat">
+            <div class="users-list">
+                <div class="chat-title">
+                    <h5>Real time chat</h5>
+                </div>
+                <div class="row-chat">
+                    <div class="user-image"></div>
+                    <div class="box-user">
+                        <span class="user-name">Vinicius lima</span>
+                        <span class="last-message">Mensagem de teste</span>
+                    </div>
+                </div>
+                <div class="row-chat">
+                    <div class="user-image"></div>
+                    <div class="box-user">
+                        <span class="user-name">Vinicius lima</span>
+                        <span class="last-message">Mensagem de teste</span>
+                    </div>
+                </div>
+                <div class="row-chat">
+                    <div class="user-image"></div>
+                    <div class="box-user">
+                        <span class="user-name">Vinicius lima</span>
+                        <span class="last-message">Mensagem de teste</span>
+                    </div>
+                </div>
+                <div class="row-chat">
+                    <div class="user-image"></div>
+                    <div class="box-user">
+                        <span class="user-name">Vinicius lima</span>
+                        <span class="last-message">Mensagem de teste</span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="navbar-chat">
+                
+            </div>
+
+            <div class="talk-box">
+                <div class="message-row">
+                    <div class="right-text-content">
+                        <p class="right-text-message">ahahahahaahaha</p>
+                    </div>
+                </div>
+                <div class="message-row">
+                    <div class="left-text-content">
+                        <p class="left-text-message">ahahahahaahahadasdasdasdasdasdasdasd</p>
+                    </div>
+                </div>
+                <div class="message-row">
+                    <div class="right-text-content">
+                        <p class="right-text-message">ahahahahaahaha</p>
+                    </div>
+                </div>
+                <div class="message-row">
+                    <div class="left-text-content">
+                        <p class="left-text-message">ahahahahaahaha</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-chat">
+                <input id="input-chat" type="text" placeholder="Mensagem...">
+                <button type="button" id="btnSubmit-message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+        
+    </div>
+    <div id="content-user" class="content" style="display: none;">content-user</div>
+    <div id="content-settings" class="content" style="display: none;">content-settings</div>
+
+    <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun','Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'],
+            datasets: [{
+                label: 'Vendas',
+                data: [0.1, 0.6, 3, 5, 2, 3,12, 19, 3, 5, 2, 3],
+                backgroundColor: [
+                    'rgba(54, 162, 235, 0.5)'
+                ],
+                borderColor: [
+                    'rgba(54, 162, 235, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    stacked: true
+                }]
+            }
+        }
+    });
+    </script>
+
+</body>
+</html>
